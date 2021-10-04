@@ -25,10 +25,10 @@ def DataAllocate(batch):
 class AudioVisualData(data.Dataset):
     
     def __init__(self):
-        self.audio = '/media/ruiq/Data/AudioVisual/data/Flickr/Spec.h5'
-        self.video = '/media/ruiq/Data/AudioVisual/data/Flickr/Video.h5'
-        self.label_a = '/media/ruiq/Data/AudioVisual/data/Flickr/labels_a.npy'
-        self.label_v = '/media/ruiq/Data/AudioVisual/data/Flickr/labels_v.npy'
+        self.audio = '../data/Spec.h5'
+        self.video = '../data/Video.h5'
+        self.label_a = '../data/labels_a.npy'
+        self.label_v = '../data/labels_v.npy'
         self.audio = h5py.File(self.audio, 'r')['audio']
         self.video = h5py.File(self.video, 'r')['video']
         self.label_a = np.load(self.label_a)

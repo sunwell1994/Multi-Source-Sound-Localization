@@ -27,8 +27,8 @@ def TestAllocate(batch):
 class TestData(data.Dataset):
     
     def __init__(self):
-        self.file = pickle.load(open('/media/ruiq/Data/yuxi_data/ruiq/AudioVisual/v8/gtdata.pkl', 'rb'))
-        f = open('/media/ruiq/Data/yuxi_data/ruiq/AudioVisual/v8/gtest.txt')
+        self.file = pickle.load(open('../utils/gtdata.pkl', 'rb'))
+        f = open('../utils/gtest.txt')
         self.pool = []
         while True:
             num = f.readline()

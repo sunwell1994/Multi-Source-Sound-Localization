@@ -12,6 +12,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
+import torchvision.models as models
+
 def train_stage_one(model, trainloader, optimizer):
     losses = []
     bar = Bar('Processing', max=len(trainloader))
@@ -21,7 +23,7 @@ def train_stage_one(model, trainloader, optimizer):
         spec = spec.cuda()
         img = img.cuda()
         label_a = label_a.cuda()
-		label_v = label_v.cuda()
+        label_v = label_v.cuda()
         avc, cls_a, cls_v = model(spec, img)
         gt_avc = torch.eye(avc.shape[0]).type(torch.LongTensor).view(-1).to(avc.device)
         avcloss = celoss(avc.view(-1, 2), gt_avc)
@@ -53,7 +55,7 @@ def train_stage_two(model, trainloader, optimizer):
         spec = spec.cuda()
         img = img.cuda()
         label_a = label_a.cuda()
-		label_v = label_v.cuda()
+        label_v = label_v.cuda()
         avc, cls_a, cls_v, fine_a, fine_v = model(spec, img)
         gt_avc = torch.eye(avc.shape[0]).type(torch.LongTensor).view(-1).to(avc.device)
         avcloss = celoss(avc.view(-1, 2), gt_avc)

@@ -99,7 +99,7 @@ def main():
     
     print('Preparing Dataset %s' % args.dataset)
     
-    datadir = '/media/yuxi/Data/AVEh5/' if args.dataset == 'AVE_C' else '/media/yuxi/Data/AudioVisual/data/Flickr/'
+    datadir = '/media/yuxi/Data/AVEh5/' if args.dataset == 'AVE_C' else 'data/'
     audio, video, rois = open_file(datadir)
 
     trainset = AudioVisualData(audio, video, rois, mix=args.mix, frame=args.frame, dataset=args.dataset, training=True)
